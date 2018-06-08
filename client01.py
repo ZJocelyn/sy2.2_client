@@ -10,9 +10,9 @@ ADDR = (HOST,PORT)          #指定地址，以元组（host,port）的形式表
 client = socket(AF_INET,SOCK_STREAM)            #建立服务器之间的网络通信，建立基于TCP的流式套接口（SOCK_STREAM 类型是基于TCP的，有保障的面向连接的socket）
 client.connect(ADDR)                   #调用客户端的connect()函数，连接到address(ADDR)处的套接字，如果连接出错，返回socket.error错误
 
-with open("./ww.jpg","wb") as f:         #以二进制写方式打开需要传输的文件
+with open("./ww.jpg","wb") as f:         #以二进制写方式打开传输的文件
     while True:
-        data = client.recv(1024)     #客户端接收服务器发来的数据
+        data = client.recv(1024)     #客户端接收服务器发来的文件数据
         if not data:         #如果没有数据则跳出循环
             break;
         f.write(data)       #向文件中写入数据
